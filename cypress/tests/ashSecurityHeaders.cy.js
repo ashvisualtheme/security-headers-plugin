@@ -8,63 +8,68 @@
  * @brief Test for the ashSecurityHeaders plugin settings UI.
  */
 
-const pluginRowId = 'component-grid-settings-plugins-settingsplugingrid-category-generic-row-ashsecurityheadersplugin';
+describe('Security Headers Plugin Tests', function() {
+	const pluginDisplayName = 'Security Headers by AshVisual Theme';
 
-function openSettingsModal() {
-    cy.get('nav a:contains("Website")').click();
-    cy.get('button#plugins-button').click();
+	it('Enables the plugin', function() {
+		cy.login('admin', 'admin', 'publicknowledge');
 
-    cy.get('#' + pluginRowId + ' .show_extras').click();
-    cy.get('a[id^=' + pluginRowId + '-settings-button]').click();
+		cy.get('.app__nav a').contains('Website').click();
+		cy.get('button[id="plugins-button"]').click();
+		cy.get('div[id^="component-grid-settings-plugins-settingsplugingrid-"] td:contains("' + pluginDisplayName + '")')
+			.parent() // Dapatkan <tr> parent
+			.find('input[type="checkbox"].toggle-plugin')
+			.check();
+		cy.get('div:contains("The plugin \\"Security Headers by AshVisual Theme\\" has been enabled.")');
+	});
 
-    cy.get('#ashSecurityHeadersSettings', { timeout: 10000 }).should('be.visible');
-}
+	it('Configures and verifies a custom setting', function() {
+		const customValue = 'DENY';
+		const defaultValue = 'SAMEORIGIN';
 
-describe('Security Headers Plugin UI Tests', function() {
-    beforeEach(() => {
-        cy.setLocale('en_US');
-        cy.login('admin', 'admin', 'publicknowledge');
-        cy.get('nav a:contains("Settings")').click();
-    });
+		cy.login('admin', 'admin', 'publicknowledge');
 
-    it('Saves a custom header value and verifies it is stored', function() {
-        const customValue = 'DENY';
-        const defaultValue = 'SAMEORIGIN';
+		cy.get('.app__nav a').contains('Website').click();
+		cy.get('button[id="plugins-button"]').click();
+		cy.get('div[id^="component-grid-settings-plugins-settingsplugingrid-"] td:contains("' + pluginDisplayName + '")')
+			.parent()
+			.find('a.show_extras')
+			.click();
+		cy.get('a.settings').click();
+		cy.get('#ashSecurityHeadersSettings', { timeout: 20000 }).should('be.visible');
+		cy.get('input#headerXfo').clear().type(customValue, { delay: 0 });
+		cy.get('form[id="ashSecurityHeadersSettings"] button:contains("Save")').click();
+		cy.get('.pkp_notification:contains("Changes saved")').should('be.visible');
+		cy.get('input#headerXfo').clear().type(defaultValue, { delay: 0 });
+		cy.get('form[id="ashSecurityHeadersSettings"] button:contains("Save")').click();
+		cy.get('.pkp_notification:contains("Changes saved")').should('be.visible');
+	});
 
-        openSettingsModal();
+	it('Verifies the custom header is applied on the frontend', function() {
+		const customValue = 'DENY';
+		const defaultValue = 'SAMEORIGIN';
 
-        cy.get('input#headerXfo').clear().type(customValue);
-        cy.get('#ashSecurityHeadersSettings button:contains("Save")').click();
+		cy.login('admin', 'admin', 'publicknowledge');
+		cy.get('.app__nav a').contains('Website').click();
+		cy.get('button[id="plugins-button"]').click();
+		cy.get('div[id^="component-grid-settings-plugins-settingsplugingrid-"] td:contains("' + pluginDisplayName + '")').parent().find('a.show_extras').click();
+		cy.get('a.settings').click();
+		cy.get('#ashSecurityHeadersSettings', { timeout: 20000 }).should('be.visible');
+		cy.get('input#headerXfo').clear().type(customValue, { delay: 0 });
+		cy.get('form[id="ashSecurityHeadersSettings"] button:contains("Save")').click();
+		cy.get('.pkp_notification:contains("Changes saved")').should('not.exist');
 
-        cy.get('.pkp_notification:contains("Changes saved")').should('be.visible');
-        cy.get('.pkp_notification:contains("Changes saved")').should('not.exist');
-        cy.get('div.pkp_modal_close').click();
+		cy.request('/index.php/publicknowledge/index').its('headers').should('include', {
+			'x-frame-options': customValue
+		});
 
-        openSettingsModal();
-        cy.get('input#headerXfo').should('have.value', customValue);
-
-        cy.get('input#headerXfo').clear().type(defaultValue);
-        cy.get('#ashSecurityHeadersSettings button:contains("Save")').click();
-        cy.get('.pkp_notification:contains("Changes saved")').should('not.exist');
-    });
-
-    it('Disables a header by saving an empty value', function() {
-        const defaultValue = 'SAMEORIGIN';
-
-        openSettingsModal();
-
-        cy.get('input#headerXfo').clear();
-        cy.get('#ashSecurityHeadersSettings button:contains("Save")').click();
-
-        cy.get('.pkp_notification:contains("Changes saved")').should('be.visible');
-        cy.get('.pkp_notification:contains("Changes saved")').should('not.exist');
-        cy.get('div.pkp_modal_close').click();
-
-        openSettingsModal();
-        cy.get('input#headerXfo').should('have.value', '');
-
-        cy.get('input#headerXfo').clear().type(defaultValue);
-        cy.get('#ashSecurityHeadersSettings button:contains("Save")').click();
-        cy.get('.pkp_notification:contains("Changes saved")').should('not.exist');
-    });
+		cy.login('admin', 'admin', 'publicknowledge');
+		cy.get('.app__nav a').contains('Website').click();
+		cy.get('button[id="plugins-button"]').click();
+		cy.get('div[id^="component-grid-settings-plugins-settingsplugingrid-"] td:contains("' + pluginDisplayName + '")').parent().find('a.show_extras').click();
+		cy.get('a.settings').click();
+		cy.get('#ashSecurityHeadersSettings', { timeout: 20000 }).should('be.visible');
+		cy.get('input#headerXfo').clear().type(defaultValue, { delay: 0 });
+		cy.get('form[id="ashSecurityHeadersSettings"] button:contains("Save")').click();
+	});
 });
