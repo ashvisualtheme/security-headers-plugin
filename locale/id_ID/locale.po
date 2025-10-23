@@ -1,0 +1,106 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Language: id_ID\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "plugins.generic.ashSecurityHeaders.displayName"
+msgstr "Security Headers by AshVisual Theme"
+
+msgid "plugins.generic.ashSecurityHeaders.description"
+msgstr "Meningkatkan keamanan dengan menambahkan header HTTP esensial. Menyediakan pengaturan default yang aman dan dapat disesuaikan untuk seluruh situs maupun per jurnal. Plugin ini dikembangkan dan dikelola oleh Ashvisual Theme. <a href='https://demo-ojs.ashvisual.com'>Lihat web demo OJS profesional kami</a>"
+
+msgid "plugins.generic.ashSecurityHeaders.settings.description"
+msgstr "Sesuaikan nilai default header keamanan di bawah ini. <strong>Untuk menonaktifkan header tertentu, kosongkan kolomnya</strong>."
+
+msgid "plugins.generic.ashSecurityHeaders.settings.headerXfoLabel"
+msgstr "X-Frame-Options"
+
+msgid "plugins.generic.ashSecurityHeaders.settings.headerXfoDescription"
+msgstr "<strong>Default</strong>: SAMEORIGIN"
+
+msgid "plugins.generic.ashSecurityHeaders.settings.headerXfoInfo"
+msgstr "Melindungi dari serangan 'clickjacking' dengan mencegah situs lain menampilkan konten Anda di dalam <strong>iframe</strong>. <a href='https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options'>Pelajari lebih lanjut</a>."
+
+msgid "plugins.generic.ashSecurityHeaders.settings.headerXctoLabel"
+msgstr "X-Content-Type-Options"
+
+msgid "plugins.generic.ashSecurityHeaders.settings.headerXctoDescription"
+msgstr "<strong>Default</strong>: nosniff"
+
+msgid "plugins.generic.ashSecurityHeaders.settings.headerXctoInfo"
+msgstr "Mencegah browser salah menginterpretasikan tipe file (MIME-sniffing), yang melindungi dari serangan di mana skrip jahat disamarkan sebagai jenis file lain. <a href='https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options'>Pelajari lebih lanjut</a>."
+
+msgid "plugins.generic.ashSecurityHeaders.settings.headerXxssLabel"
+msgstr "X-XSS-Protection"
+
+msgid "plugins.generic.ashSecurityHeaders.settings.headerXxssDescription"
+msgstr "<strong>Default</strong>: 1; mode=block"
+
+msgid "plugins.generic.ashSecurityHeaders.settings.headerXxssInfo"
+msgstr "Header ini menghentikan pemuatan halaman saat mendeteksi adanya serangan cross-site scripting (XSS). Catatan: Header ini sudah usang di browser modern dan digantikan oleh Content-Security-Policy. <a href='https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection'>Pelajari lebih lanjut</a>."
+
+msgid "plugins.generic.ashSecurityHeaders.settings.headerCspLabel"
+msgstr "Content-Security-Policy (CSP)"
+
+msgid "plugins.generic.ashSecurityHeaders.settings.headerCspDescription"
+msgstr "<strong>Default</strong>: upgrade-insecure-requests;"
+
+msgid "plugins.generic.ashSecurityHeaders.settings.headerCspInfo"
+msgstr "Header yang sangat kuat untuk mencegah serangan XSS dengan menentukan sumber konten (seperti skrip, gaya, dan gambar) mana yang diizinkan untuk dimuat. Untuk perlindungan lebih lanjut, pertimbangkan untuk menambahkan direktif seperti <strong>script-src 'self';</strong>. <a href='https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy'>Pelajari lebih lanjut</a>."
+
+msgid "plugins.generic.ashSecurityHeaders.settings.headerCoepLabel"
+msgstr "Cross-Origin-Embedder-Policy"
+
+msgid "plugins.generic.ashSecurityHeaders.settings.headerCoepDescription"
+msgstr "<strong>Default</strong>: same-origin; report-to='default'"
+
+msgid "plugins.generic.ashSecurityHeaders.settings.headerCoepInfo"
+msgstr "Mencegah halaman memuat sumber daya lintas-origin yang tidak secara eksplisit memberikan izin, mengaktifkan isolasi lintas-origin untuk melindungi dari serangan seperti Spectre. <a href='https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Embedder-Policy'>Pelajari lebih lanjut</a>."
+
+msgid "plugins.generic.ashSecurityHeaders.settings.headerCoopLabel"
+msgstr "Cross-Origin-Opener-Policy"
+
+msgid "plugins.generic.ashSecurityHeaders.settings.headerCoopDescription"
+msgstr "<strong>Default</strong>: require-corp"
+
+msgid "plugins.generic.ashSecurityHeaders.settings.headerCoopInfo"
+msgstr "Mengisolasi konteks browsing situs Anda dari origin lain, mencegah serangan phishing seperti 'tabnabbing' di mana halaman yang ditautkan dapat mengambil alih kontrol halaman asli. <a href='https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Opener-Policy'>Pelajari lebih lanjut</a>."
+
+msgid "plugins.generic.ashSecurityHeaders.settings.headerCorpLabel"
+msgstr "Cross-Origin-Resource-Policy"
+
+msgid "plugins.generic.ashSecurityHeaders.settings.headerCorpDescription"
+msgstr "<strong>Default</strong>: same-origin"
+
+msgid "plugins.generic.ashSecurityHeaders.settings.headerCorpInfo"
+msgstr "Mengontrol situs eksternal mana yang diizinkan untuk menyematkan sumber daya situs Anda (seperti gambar atau PDF), melindungi data pengguna Anda agar tidak bocor ke origin yang berbeda. <a href='https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Resource-Policy'>Pelajari lebih lanjut</a>."
+
+msgid "plugins.generic.ashSecurityHeaders.settings.headerPpLabel"
+msgstr "Permissions-Policy"
+
+msgid "plugins.generic.ashSecurityHeaders.settings.headerPpDescription"
+msgstr "<strong>Default</strong>: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), usb=(), fullscreen=(self)"
+
+msgid "plugins.generic.ashSecurityHeaders.settings.headerPpInfo"
+msgstr "Memungkinkan Anda mengontrol fitur dan API browser mana (seperti kamera, mikrofon, geolokasi) yang dapat digunakan di situs Anda, meningkatkan privasi dan keamanan pengguna dengan menonaktifkan fitur yang tidak diperlukan. <a href='https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy'>Pelajari lebih lanjut</a>."
+
+msgid "plugins.generic.ashSecurityHeaders.settings.headerRpLabel"
+msgstr "Referrer-Policy"
+
+msgid "plugins.generic.ashSecurityHeaders.settings.headerRpDescription"
+msgstr "<strong>Default</strong>: strict-origin-when-cross-origin"
+
+msgid "plugins.generic.ashSecurityHeaders.settings.headerRpInfo"
+msgstr "Mengontrol seberapa banyak informasi perujuk (URL halaman sebelumnya) yang dikirim saat pengguna meninggalkan situs Anda, yang membantu melindungi privasi pengguna. <a href='https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy'>Pelajari lebih lanjut</a>."
+
+msgid "plugins.generic.ashSecurityHeaders.settings.headerHstsLabel"
+msgstr "Strict-Transport-Security (HSTS)"
+
+msgid "plugins.generic.ashSecurityHeaders.settings.headerHstsDescription"
+msgstr "<strong>Default</strong>: max-age=63072000; includeSubDomains; preload"
+
+msgid "plugins.generic.ashSecurityHeaders.settings.headerHstsInfo"
+msgstr "Memaksa browser untuk hanya berkomunikasi dengan situs Anda menggunakan koneksi HTTPS yang aman, mencegah serangan 'man-in-the-middle' dan melindungi data pengguna saat transit. <a href='https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security'>Pelajari lebih lanjut</a>."
