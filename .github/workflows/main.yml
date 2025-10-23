@@ -1,5 +1,5 @@
 on: [push]
-name: pluginTemplate
+name: ashSecurityHeaders
 jobs:
   pluginTemplate:
     runs-on: ubuntu-latest
@@ -8,16 +8,16 @@ jobs:
       matrix:
         include:
           - application: ojs
-            php-version: 8.3
+            php-version: 8.1
             database: mysql
           - application: ojs
-            php-version: 8.2
+            php-version: 7.4
             database: mysql
           - application: ojs
-            php-version: 8.3
+            php-version: 8.1
             database: pgsql
           - application: ojs
-            php-version: 8.2
+            php-version: 7.4
             database: pgsql
 
     name: pluginTemplate
