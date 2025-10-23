@@ -1,37 +1,31 @@
-# .github/workflows/main.yml
-name: Plugin CI
-on: [push, pull_request]
-
+on: [push]
+name: pluginTemplate
 jobs:
-  test:
+  pluginTemplate:
     runs-on: ubuntu-latest
-
     strategy:
       fail-fast: false
       matrix:
-        app-version:
-          - '3.3.0'
-          - 'stable-3_3_0'
-        php-version:
-          - '7.4'
+        include:
+          - application: ojs
+            php-version: 8.3
+            database: mysql
+          - application: ojs
+            php-version: 8.2
+            database: mysql
+          - application: ojs
+            php-version: 8.3
+            database: pgsql
+          - application: ojs
+            php-version: 8.2
+            database: pgsql
+
+    name: pluginTemplate
     steps:
-      - name: Checkout plugin
-        uses: actions/checkout@v3
-      - name: Setup OJS
-        uses: pkp/pkp-github-actions/main@v0
+      - uses: pkp/pkp-github-actions@v1
         with:
-          app: ojs
-          app-version: ${{ matrix.app-version }}
-          php-version: ${{ matrix.php-version }}
-          plugin-name: ashSecurityHeaders
-          run: |
-          
-      - name: Calculate MD5 Hash
-        run: |
-          echo "Calculating MD5 hash for the release package..."
-          md5sum releases/ashSecurityHeaders*.tar.gz
+         node_version: 20
+         branch: main
+         repository: pkp
+         plugin: true
 
-
-      - name: Run Cypress tests
-        run: |
-          npx cypress run --spec 'plugins/generic/ashSecurityHeaders/cypress/tests/*.cy.js'
