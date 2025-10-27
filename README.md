@@ -29,7 +29,7 @@ This plugin manages the following headers:
 
 ## Requirements
 
-- **OJS version:** 3.3.x and above.
+- **OJS version:** 3.4.x (eg. `3.4.0.5` `3.4.0.9`)
 
 ---
 
