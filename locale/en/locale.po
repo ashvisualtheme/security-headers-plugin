@@ -7,7 +7,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "plugins.generic.ashSecurityHeaders.displayName"
-msgstr "Security Headers by AshVisual Theme"
+msgstr "Security Headers"
 
 msgid "plugins.generic.ashSecurityHeaders.description"
 msgstr "Enhances security by adding essential HTTP headers. Provides secure defaults that can be customized for the entire site or for individual journals. This plugin is developed and maintained by Ashvisual Theme. <a href='https://demo-ojs.ashvisual.com'>See our professional OJS themes in action on our live demo</a>"

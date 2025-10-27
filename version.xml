@@ -13,7 +13,7 @@
 <version>
 	<application>ashSecurityHeaders</application>
 	<type>plugins.generic</type>
-	<release>1.4.0.0</release>
+	<release>1.5.0.0</release>
 	<date>2025-10-27</date>
 	<class>AshSecurityHeadersPlugin</class>
 </version>
