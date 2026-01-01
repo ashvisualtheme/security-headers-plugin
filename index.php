@@ -13,5 +13,5 @@
  *
  */
 
-require_once('SecurityHeadersPlugin.inc.php');
-return new SecurityHeadersPlugin();
+require_once('AshSecurityHeadersPlugin.inc.php');
+return new AshSecurityHeadersPlugin();
